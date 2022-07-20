@@ -1,0 +1,10 @@
+.todo-list-item {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+
+    .todo-item-finished {
+        text-decoration: line-through;
+    }
+}
