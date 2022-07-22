@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.styles.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { NotificationContainer } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
+    <NotificationContainer />
   </React.StrictMode>
 );
 

@@ -5,8 +5,16 @@ This is a React todo app using functional components.
 I created this small project while learning about functional components in React.
 
 
+## Features 
+
+- Notifications
+- Simple tasks
+- Timed tasks
+
 ## Todo
 
+- [x] Implement timed tasks
+- [ ] Use localstorage for task storage
 - [ ] Learn responsive CSS 
 - [ ] Implement responsive CSS to beautify this project
 
