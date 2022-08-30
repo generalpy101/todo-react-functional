@@ -1,17 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.styles.scss';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { NotificationContainer } from 'react-notifications';
-import 'react-notifications/lib/notifications.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.styles.scss";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { NotificationContainer } from "react-notifications";
+import "react-notifications/lib/notifications.css";
+import { BrowserRouter } from "react-router-dom";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <App />
-    <NotificationContainer />
-  </React.StrictMode>
+    <React.StrictMode>
+        <BrowserRouter>
+            <App />
+            <NotificationContainer />
+        </BrowserRouter>
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

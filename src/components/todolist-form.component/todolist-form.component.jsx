@@ -1,6 +1,8 @@
 import "./todolist-form.styles.scss";
 import { useState } from "react";
 
+import UserContext from "../../contexts/userContext";
+
 const TodoListForm = ({ addTodoItem }) => {
     const getCurrentDateTime = () => {
         const currDate = new Date();
@@ -13,16 +15,20 @@ const TodoListForm = ({ addTodoItem }) => {
     const [isDated, setIsDated] = useState(false);
     const [todoTextString, setTodoTextString] = useState("");
     const [todoDate, setTodoDate] = useState(getCurrentDateTime());
+    const [internalTodoDate, setInternalTodoDate] = useState(
+        getCurrentDateTime()
+    );
 
     const handleFormSubmit = () => {
         if (todoTextString === "") return;
         const todoTitle = todoTextString;
         setTodoTextString("");
-        const todoItem = { name: todoTitle, isDated };
+        const todoItem = { title: todoTitle, isDated };
+        console.log(isDated);
         if (isDated) {
-            const todoEndDate = todoDate;
+            const todoEndDate = internalTodoDate;
             setTodoDate(getCurrentDateTime());
-            todoItem["endDateTime"] = todoEndDate;
+            todoItem["deadline"] = todoEndDate;
         }
         addTodoItem(todoItem);
     };
@@ -80,6 +86,11 @@ const TodoListForm = ({ addTodoItem }) => {
                                     .toISOString()
                                     .slice(0, -1);
                                 setTodoDate(assignableDate);
+                                setInternalTodoDate(
+                                    new Date(
+                                        e.target.valueAsNumber
+                                    ).toISOString()
+                                );
                             }}
                         />
                     </div>
