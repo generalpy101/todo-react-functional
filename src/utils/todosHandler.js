@@ -1,6 +1,6 @@
 import env from "react-dotenv";
 
-const URL = env.API_URL;
+const URL = env.API_URL || process.env.API_URL;
 
 export async function getTodoList(userToken) {
     const res = await fetch(`${URL}/todos`, {

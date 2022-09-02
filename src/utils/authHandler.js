@@ -1,6 +1,6 @@
 import env from "react-dotenv";
 
-const AUTH_BASE_URL = env.AUTH_BASE_URL;
+const AUTH_BASE_URL = env.AUTH_BASE_URL || process.env.AUTH_BASE_URL;
 
 export function signIn(username, password) {
     if (!username || !password) {
