@@ -34,7 +34,8 @@ const TodoList = () => {
                 userToken: userDetails.userToken,
                 ...todoItem,
             });
-            setTodos([...todos, todoItem]);
+            const todoJson = await resp.json();
+            setTodos([...todos, todoJson]);
             NotificationManager.success(
                 `Todo with title "${todoItem.name.slice(0, 10)}" created`,
                 "Todo Created",
@@ -75,7 +76,6 @@ const TodoList = () => {
                 todos.map((todo) => {
                     // console.log(todo);
                     return (
-                        
                         <TodoListItem
                             key={todo.id}
                             {...todo}

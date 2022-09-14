@@ -1,4 +1,5 @@
 import env from "react-dotenv";
+import { v4 as uuidv4 } from "uuid";
 
 const URL = env.API_URL || process.env.API_URL;
 
@@ -51,7 +52,9 @@ export async function createTodoAPI({ userToken, ...todoDetails }) {
             isDated: todoDetails.isDated,
             deadline: todoDetails.deadline,
             isDone: false,
+            id: uuidv4(),
         };
+        //console.log(todo);
         return fetch(`${URL}/todos`, {
             method: "POST",
             headers: {
